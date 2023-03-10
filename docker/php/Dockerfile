@@ -1,8 +1,8 @@
 FROM php:8-fpm-alpine
-LABEL MAINTAINER="Vagner Cardoso <vagnercardosoweb@gmail.com>"
+LABEL MAINTAINER="bzerangue"
 
 # Environments
-ENV TZ=America/Sao_Paulo
+ENV TZ=America/Chicago
 ENV WORKDIR=/var/www/app.dev
 
 # Updates and installs system dependencies

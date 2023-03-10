@@ -1,4 +1,4 @@
-FROM php:8-fpm-alpine
+FROM php:8.1-fpm-alpine
 LABEL MAINTAINER="bzerangue"
 
 # Environments
@@ -20,33 +20,12 @@ RUN apk add --update --no-cache \
   $PHPIZE_DEPS && \
   rm -rf /var/cache/apk/*
 
-# Configure php dependency
-RUN docker-php-ext-configure soap --enable-soap
-RUN docker-php-ext-configure gd --with-freetype --with-jpeg
+# Configure php dependency / Install php dependency
 
-# Install php dependencies
-RUN docker-php-ext-install \
-  -j$(nproc) gd \
-  iconv \
-  bcmath \
-  xml \
-  soap \
-  mbstring \
-  pdo \
-  pdo_mysql \
-  pdo_pgsql \
-  mysqli \
-  zip \
-  opcache \
-  intl \
-  xsl \
-  exif \
-  soap
+ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
 
-# Install pecl
-RUN pecl install xdebug && docker-php-ext-enable xdebug
-RUN pecl -v install redis && docker-php-ext-enable redis
-RUN pecl -v install rar && docker-php-ext-enable rar
+RUN chmod +x /usr/local/bin/install-php-extensions && \
+    install-php-extensions gd xdebug intl opcache pdo pdo_mysql mysqli xsl xmlrpc bz2 bcmath gettext gmp mcrypt apcu @composer @fix_letsencrypt
 
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer

@@ -54,8 +54,8 @@ services:
       # - redis
       # - mariadb
     ports:
-      - "80:80"
-      - "443:443"
+      - "8088:80"
+      - "8443:443"
     volumes:
       - .:/var/www/app.dev
 
@@ -67,7 +67,7 @@ services:
     networks:
       - skeleton-docker.network
     ports:
-      - '3306:3306'
+      - '3307:3306'
     volumes:
       - './docker/mysql/config/mariadb.cnf:/etc/mysql/conf.d/custom.cnf:ro'
       - './docker/mysql/dbdata:/var/lib/mysql'
@@ -110,7 +110,7 @@ services:
       PMA_PORT: 3306
       PMA_ARBITRARY: 1
     ports:
-      - '8080:80'
+      - '8089:80'
 
   # postgres:
   #   build: ./docker/postgres

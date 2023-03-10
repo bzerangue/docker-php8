@@ -11,7 +11,7 @@ After installing, just run the following command in the terminal at the root whe
 docker-compose up -d
 ```
 
-**-d** means that it will run in the background and your terminal will not get stuck, and to kill the process just press `CTRL + C` on windows OR `Command + C` on mac.
+**-d** (detached mode) means that it will run in the background and your terminal will not get stuck, and to kill the process just press `CTRL + C` on windows OR `Command + C` on mac.
 
 ## Pre-configured Images
 

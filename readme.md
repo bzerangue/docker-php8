@@ -1,20 +1,19 @@
 # Docker com PHP 8
 
-Caso não tenha é preciso instalar o docker e docker-compose.
+If not installed, you will need to install docker and docker-compose.
 
-- [Instalar Docker](https://docs.docker.com/install/)
-- [Instalar Docker Compose](https://docs.docker.com/compose/install/)
+- [Install Docker](https://docs.docker.com/install/)
+- [Install Docker Compose](https://docs.docker.com/compose/install/)
 
-Depois de instalar basta rodar no terminal na raiz aonde está o arquivo `docker-compose.yml` o seguinte comando.
+After installing, just run the following command in the terminal at the root where the `docker-compose.yml` file is.
 
 ```bash
 docker-compose up -d
 ```
 
-**-d** significa que será executado em background e seu terminal não irá ficar travado e para matar o processo basta
-apertar `CTRL + C` no windows ou `Command + C` no mac.
+**-d** means that it will run in the background and your terminal will not get stuck, and to kill the process just press `CTRL + C` on windows OR `Command + C` on mac.
 
-## Images pré configuradas
+## Pre-configured Images
 
 - [Nginx](https://www.nginx.com/)
 - [Apache2](https://httpd.apache.org/)
